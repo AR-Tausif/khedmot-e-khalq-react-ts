@@ -1,3 +1,4 @@
+import IconInput from "@/components/shared/IconInput";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -42,7 +43,17 @@ const RegisterUserForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const onSubmit = async (data: Record<string, unknown>) => {};
+  const onSubmit = async (data: Record<string, unknown>) => {
+    console.log(data);
+    toast({
+      title: "You submitted the following values:",
+      description: (
+        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+        </pre>
+      ),
+    });
+  };
 
   return (
     <Form {...form}>
@@ -83,6 +94,7 @@ const RegisterUserForm = () => {
               <FormLabel>Username</FormLabel>
               <FormControl>
                 <Input placeholder="Type username" {...field} />
+                {/* <IconInput field={field} /> */}
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -140,11 +152,11 @@ const RegisterUserForm = () => {
             name="role"
             render={({ field }) => (
               <FormItem className="text-gray-900">
-                <FormLabel>Blood Group</FormLabel>
+                <FormLabel>Role</FormLabel>
                 <Select onValueChange={field.onChange} {...field}>
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select a Blood Group" />
+                      <SelectValue placeholder="Select your role" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>

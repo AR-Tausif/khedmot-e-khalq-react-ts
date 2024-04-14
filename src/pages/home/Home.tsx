@@ -1,6 +1,7 @@
 import React from "react";
 import MeetOurDonors from "./MeetOurDonors";
 import Footer from "@/components/shared/Footer";
+import { Input } from "@/components/ui/input";
 
 const Home = () => {
   return (
@@ -24,9 +25,9 @@ const Home = () => {
                       htmlFor="hs-search-article-1"
                       className="block text-sm text-gray-700 font-medium dark:text-white"
                     >
-                      <span className="sr-only">Search article</span>
+                      <span className="sr-only">Search Donors</span>
                     </label>
-                    <input
+                    <Input
                       type="email"
                       name="hs-search-article-1"
                       id="hs-search-article-1"
